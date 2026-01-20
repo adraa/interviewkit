@@ -3,43 +3,47 @@ import { Button } from './Button';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative bg-slate-900 text-white py-20 px-4 md:px-8 overflow-hidden border-b border-gray-800">
-      {/* Aggressive Background Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#39FF14] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-      
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <div className="inline-block bg-red-600 text-white text-xs font-black px-4 py-1 rounded mb-6 uppercase tracking-widest rotate-2 hover:rotate-0 transition-transform">
-          Amaran: Content Ini Untuk Yang Serius Nak Kerja Je
+    <section className="bg-white pt-10 pb-16 overflow-hidden">
+      <div className="max-w-4xl mx-auto px-5 text-center">
+        
+        {/* Super Headline */}
+        <div className="inline-block bg-red-100 text-red-700 font-bold px-4 py-1 rounded-full text-xs md:text-sm uppercase tracking-wider mb-6 border border-red-200">
+          <i className="fa-solid fa-triangle-exclamation mr-2"></i>
+          Amaran: Teknik Ini Untuk Yang Serius Nak Kerja Sahaja
         </div>
         
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-none mb-6 tracking-tight">
-          DEGREE GANTUNG KAT DINDING, <br/>
-          TAPI DUIT DALAM POKET <span className="text-red-500 italic">HABUK PUN TAKDE?</span>
+        {/* Main Headline */}
+        <h1 className="font-display text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+          SIAPA SANGKA CUMA UBAH <br/>
+          <span className="text-red-600 bg-red-50 px-2 rounded decoration-red-300 underline underline-offset-4 decoration-4">
+            'SKRIP'
+          </span>
+          <br/>
+          BOLEH DAPAT GAJI RM3,000+ SEBULAN?
         </h1>
         
-        <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed border-l-4 border-red-600 pl-4 md:pl-0 md:border-none">
-          Member sekolah yang 'biasa-biasa' dulu dah pakai Honda & belanja mak ayah. <br className="hidden md:block"/>
-          <span className="text-white font-bold">Kau? Masih minta duit topup.</span> Malu weh.
+        {/* Subheadline */}
+        <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+          Tak Perlu Kabel. Tak Perlu English Power. <br className="hidden md:block" />
+          <span className="font-bold text-slate-900 bg-yellow-200 px-1 border-b-2 border-yellow-400">Tak Perlu Muka Hensem.</span>
         </p>
         
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
-          <div className="w-full md:w-auto">
+        {/* CTA Button */}
+        <div className="flex justify-center mb-12">
              <Button 
-                text="AKU NAK KERJA GAJI RM3,000+ (RM49)" 
-                variant="neon"
-                fullWidth={true}
+                text="SAYA NAK RAHSIA NI (RM49)" 
+                variant="primary"
+                fullWidth={false}
+                className="w-full md:w-auto animate-pulse min-w-[300px]"
+                href="#pricing"
              />
-          </div>
         </div>
 
-        <div className="mt-8 relative max-w-2xl mx-auto group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-[#39FF14] rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <img 
-                src="https://placehold.co/600x400/1e293b/ffffff/png?text=Resume+Kena+Reject" 
-                alt="Situasi Resume Kena Reject" 
-                className="relative rounded-lg border border-gray-700 w-full shadow-2xl grayscale group-hover:grayscale-0 transition duration-500"
-            />
+        {/* Trust Indicators */}
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 font-medium">
+          <span className="flex items-center"><i className="fa-solid fa-check-circle text-green-500 mr-2"></i> Edisi Terkini 2026</span>
+          <span className="flex items-center"><i className="fa-solid fa-check-circle text-green-500 mr-2"></i> 100% Digital Download</span>
+          <span className="flex items-center"><i className="fa-solid fa-check-circle text-green-500 mr-2"></i> Proven Results</span>
         </div>
       </div>
     </section>

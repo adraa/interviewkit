@@ -3,97 +3,99 @@ import { Button } from './Button';
 
 export const PriceAnchor: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-900 text-white px-4 md:px-8 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="pricing" className="py-20 bg-gray-50 px-5 border-t border-gray-100">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-wider">
-            Pilih Senjata Kau
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 uppercase">
+            Pilih Pakej Anda
             </h2>
-            <p className="text-gray-400 mt-4">Jangan salah pilih. Masa depan kau bergantung kat sini.</p>
+            <p className="text-gray-600 mt-2 text-lg">Dapatkan akses segera harini.</p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+        {/* Layout: Stack Mobile, Side-by-Side Desktop */}
+        <div className="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
             
-            {/* The Decoy - Basic */}
-            <div className="bg-slate-900 border-2 border-slate-700 rounded-2xl p-8 flex flex-col justify-between opacity-80 hover:opacity-100 transition-opacity">
+            {/* CARD 1: THE DECOY (Minimalist) */}
+            <div className="bg-white border border-gray-200 p-8 rounded-xl flex flex-col justify-between h-auto md:h-[480px] shadow-sm hover:shadow-md transition-shadow">
                 <div>
-                    <h3 className="text-xl font-bold text-gray-400 uppercase mb-2">Basic Package</h3>
-                    <div className="text-4xl font-display font-bold text-white mb-6">RM39</div>
-                    <p className="text-sm text-gray-500 mb-6 border-b border-slate-800 pb-6">
-                        Untuk yang nak baca teori je. Taknak skrip, taknak strategi.
-                    </p>
-                    <ul className="space-y-4 mb-8 text-gray-400">
+                    <h3 className="text-lg font-bold text-gray-500 uppercase tracking-widest mb-4 text-center">Ebook Sahaja</h3>
+                    <div className="text-center mb-6">
+                        <span className="text-4xl font-extrabold text-slate-800">RM39</span>
+                    </div>
+                    <ul className="space-y-4 mb-8 text-gray-600 text-sm">
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-check text-white"></i> Interview Blueprint Ebook
+                            <i className="fa-solid fa-check text-green-500"></i> Blueprint Ebook Utama
                         </li>
-                        <li className="flex items-center gap-3 opacity-50">
-                            <i className="fa-solid fa-xmark text-red-500"></i> No Skrip Jawapan Maut
+                        <li className="flex items-center gap-3 text-gray-400 line-through">
+                            <i className="fa-solid fa-xmark"></i> 30 Skrip Jawapan
                         </li>
-                        <li className="flex items-center gap-3 opacity-50">
-                            <i className="fa-solid fa-xmark text-red-500"></i> No Checklist Anti-Gugup
-                        </li>
-                        <li className="flex items-center gap-3 opacity-50">
-                            <i className="fa-solid fa-xmark text-red-500"></i> No Bonus Content
+                        <li className="flex items-center gap-3 text-gray-400 line-through">
+                            <i className="fa-solid fa-xmark"></i> Semua Bonus Tambahan
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <Button 
-                        text="Nak Ebook Je (RM39)" 
-                        variant="muted"
-                        href="https://toyyibpay.com/kit-pukau-basic"
-                        fullWidth={true}
-                    />
-                </div>
+                <Button 
+                    text="Beli Ebook Saja" 
+                    variant="secondary"
+                    href="https://toyyibpay.com/kit-pukau-basic"
+                    fullWidth={true}
+                    className="text-sm"
+                />
             </div>
 
-            {/* The Hero - Bundle */}
-            <div className="bg-slate-800 border-2 border-[#39FF14] rounded-2xl p-8 flex flex-col justify-between relative shadow-[0_0_40px_rgba(57,255,20,0.15)] transform md:-translate-y-4">
-                {/* Recommended Badge */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#39FF14] text-black text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-lg">
-                    Recommended
+            {/* CARD 2: THE WINNER (Red Border & Ribbon) */}
+            <div className="bg-white border-4 border-red-600 p-8 rounded-xl flex flex-col justify-between h-auto md:h-[540px] shadow-2xl relative overflow-hidden transform md:-translate-y-4">
+                
+                {/* Ribbon */}
+                <div className="absolute top-0 right-0">
+                    <div className="bg-yellow-400 text-red-900 text-xs font-bold px-10 py-1 transform rotate-45 translate-x-8 translate-y-4 shadow-sm border border-yellow-500 uppercase tracking-wider">
+                        Paling Laris
+                    </div>
                 </div>
 
                 <div>
-                    <h3 className="text-xl font-bold text-[#39FF14] uppercase mb-2">Full Kit Bundle</h3>
-                    <div className="flex items-baseline gap-3 mb-6">
-                        <span className="text-red-500 line-through text-lg font-bold">RM299</span>
-                        <span className="text-5xl font-display font-black text-white">RM49</span>
+                    <h3 className="text-xl font-black text-red-600 uppercase tracking-widest mb-4 text-center mt-4">Full Kit Bundle + Bonus</h3>
+                    <div className="text-center mb-2">
+                        <span className="text-gray-400 line-through text-lg font-semibold mr-2">RM299</span>
+                        <span className="text-5xl font-extrabold text-red-600">RM49</span>
                     </div>
-                    <p className="text-sm text-gray-300 mb-6 border-b border-gray-700 pb-6">
-                        Pakej lengkap untuk <span className="text-[#39FF14]">pukau majikan</span>. Semua tool, skrip & bonus included.
-                    </p>
-                    <ul className="space-y-4 mb-8 text-white">
+                    
+                    {/* Urgency Graphic Placeholder */}
+                    <div className="text-center mb-6">
+                        <div className="inline-block bg-red-50 text-red-600 text-xs font-bold px-3 py-1 rounded-full border border-red-100 animate-pulse">
+                            <i className="fa-regular fa-clock mr-1"></i> Harga Naik Esok!
+                        </div>
+                    </div>
+
+                    <ul className="space-y-3 mb-8 text-slate-800 font-medium">
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-check text-[#39FF14]"></i> Interview Blueprint Ebook
+                            <i className="fa-solid fa-circle-check text-green-500 text-lg"></i> Interview Success Blueprint
                         </li>
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-check text-[#39FF14]"></i> 30 Skrip Jawapan Maut
+                            <i className="fa-solid fa-circle-check text-green-500 text-lg"></i> 30 Skrip Jawapan Maut
                         </li>
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-check text-[#39FF14]"></i> Checklist Anti-Gugup
+                            <i className="fa-solid fa-circle-check text-green-500 text-lg"></i> Checklist & Body Language
                         </li>
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-check text-[#39FF14]"></i> Body Language Hacks
+                            <i className="fa-solid fa-circle-check text-green-500 text-lg"></i> BONUS: Email Course
                         </li>
                         <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-star text-yellow-400"></i> BONUS: 7-Day Email Course
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <i className="fa-solid fa-star text-yellow-400"></i> BONUS: Nota Realiti Malaysia
+                            <i className="fa-solid fa-circle-check text-green-500 text-lg"></i> BONUS: Nota Realiti
                         </li>
                     </ul>
                 </div>
+                
                 <div>
                     <Button 
-                        text="SAMBAR SEMUA + BONUS (RM49)" 
-                        subtext="Jimat RM250 Harini Sahaja"
-                        variant="neon"
+                        text="DOWNLOAD SEKARANG (RM49)" 
+                        variant="primary"
                         href="https://toyyibpay.com/kit-pukau-majikan"
                         fullWidth={true}
+                        className="animate-pulse shadow-red-300 w-full"
                     />
-                    <div className="mt-4 text-center text-xs text-gray-500">
-                        <i className="fa-solid fa-lock mr-1"></i> Secure Payment via ToyyibPay
+                    <div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-400">
+                        <i className="fa-solid fa-lock"></i> Secure Payment via ToyyibPay
                     </div>
                 </div>
             </div>

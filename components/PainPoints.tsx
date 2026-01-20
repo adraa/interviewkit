@@ -1,48 +1,40 @@
 import React from 'react';
 
-const TruthBomb: React.FC<{ icon: string; title: string; text: string }> = ({ icon, title, text }) => (
-  <div className="bg-slate-800 border border-slate-700 p-8 rounded-none hover:border-red-600 transition-colors duration-300 relative overflow-hidden group">
-    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-        <i className={`${icon} text-6xl text-red-600`}></i>
+const ProblemCard: React.FC<{ title: string; text: string }> = ({ title, text }) => (
+  <div className="bg-white p-8 rounded-xl shadow-lg border border-red-100 relative hover:-translate-y-1 transition-transform duration-300">
+    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm">
+       <i className="fa-solid fa-xmark text-2xl text-red-600"></i>
     </div>
-    <div className="relative z-10">
-        <div className="w-16 h-16 bg-red-900/30 rounded flex items-center justify-center mb-6">
-          <i className={`${icon} text-3xl text-red-500`}></i>
-        </div>
-        <h3 className="text-2xl font-display font-bold text-white mb-4 uppercase">{title}</h3>
-        <p className="text-gray-400 leading-relaxed font-light">
-          {text}
-        </p>
-    </div>
+    <h3 className="text-xl font-bold text-slate-900 mb-3 text-center mt-2">{title}</h3>
+    <p className="text-gray-600 text-center leading-relaxed text-sm">
+      {text}
+    </p>
   </div>
 );
 
 export const PainPoints: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-900 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-20 bg-[#FEF2F2] px-5">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-            KENAPA HR <span className="text-red-600 bg-white px-2">BUANG</span> RESUME KAU?
+            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            Adakah Anda Sedang Rasa <span className="text-red-600 bg-yellow-200 px-2 rotate-2 inline-block shadow-sm transform border border-yellow-300">TERHIMPIT</span> Macam Ni?
             </h2>
-            <p className="text-gray-400 text-lg">Baca ni dan hadam. Jangan terasa hati, ini realiti.</p>
+            <p className="text-gray-600">Jangan tipu diri sendiri. Situasi ni memang sakit.</p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6">
-          <TruthBomb 
-            icon="fa-solid fa-language"
-            title="English Kau Hancur"
-            text="Bila HR tanya 'Tell me about yourself', kau gagap 'Err.. err.. my father name is...'. Terus dia pangkah nama kau. Next!"
+        <div className="grid md:grid-cols-3 gap-10 mt-10">
+          <ProblemCard 
+            title="Duit Habis"
+            text="Dah 6 bulan grad, tapi masih minta duit belanja kat mak ayah. Rasa bersalah setiap kali minta topup. Malu weh."
           />
-          <TruthBomb 
-            icon="fa-solid fa-person-circle-question"
-            title="Muka Tak Confident"
-            text="Masuk bilik interview jalan bongkok, mata pandang lantai, suara macam tikus. Macam mana company nak percaya kau handle projek juta-juta?"
+          <ProblemCard 
+            title="Interview Gagal"
+            text="Bila HR tanya dalam English, terus gagap. Otak blank. Balik rumah rasa nak nangis sebab lepaskan peluang."
           />
-          <TruthBomb 
-            icon="fa-brands fa-google"
-            title="Jawapan Skema Google"
-            text="HR dah dengar jawapan 'My weakness is I work too hard' tu 1,000 kali. Boring gila! Kau nampak fake dan takde originaliti."
+          <ProblemCard 
+            title="Member Dah Kaya"
+            text="Kawan satu batch dah post gambar kereta baru & holiday. Kau? Masih scroll JobStreet cari kerja kosong."
           />
         </div>
       </div>

@@ -4,33 +4,34 @@ interface ButtonProps {
   text: string;
   subtext?: string;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'neon' | 'muted';
+  variant?: 'primary' | 'secondary' | 'ghost';
   fullWidth?: boolean;
+  className?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({ 
   text, 
   subtext, 
-  href = "https://toyyibpay.com/kit-pukau-majikan", 
-  variant = 'neon',
-  fullWidth = false 
+  href = "#pricing", 
+  variant = 'primary',
+  fullWidth = false,
+  className = ""
 }) => {
-  const baseClasses = "inline-flex flex-col items-center justify-center px-6 py-4 rounded-lg font-black text-lg md:text-xl transition-all duration-200 transform hover:scale-105 active:scale-95 border-2";
+  const baseClasses = "inline-flex flex-col items-center justify-center px-6 py-4 rounded-lg font-bold text-lg md:text-xl transition-all duration-200 transform hover:-translate-y-1 active:translate-y-0 shadow-lg";
   
   const variants = {
-    primary: "bg-red-600 hover:bg-red-700 text-white border-red-600 shadow-lg",
-    secondary: "bg-transparent hover:bg-white/10 text-white border-white",
-    neon: "bg-[#39FF14] hover:bg-[#32cc12] text-black border-[#39FF14] animate-pulse shadow-[0_0_20px_rgba(57,255,20,0.3)]",
-    muted: "bg-slate-800 hover:bg-slate-700 text-gray-400 border-slate-700 hover:text-white"
+    primary: "bg-red-600 hover:bg-red-700 text-white shadow-red-200 border-b-4 border-red-800",
+    secondary: "bg-gray-200 hover:bg-gray-300 text-gray-800 border-b-4 border-gray-400",
+    ghost: "bg-transparent text-gray-600 hover:text-red-600 hover:bg-red-50 shadow-none border-none"
   };
 
   return (
     <a 
       href={href} 
-      className={`${baseClasses} ${variants[variant]} ${fullWidth ? 'w-full' : ''}`}
+      className={`${baseClasses} ${variants[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
     >
-      <span className="uppercase tracking-wide font-display italic">{text}</span>
-      {subtext && <span className="text-xs font-bold mt-1 opacity-80">{subtext}</span>}
+      <span className="uppercase tracking-tight leading-none">{text}</span>
+      {subtext && <span className="text-xs font-medium mt-1 opacity-90">{subtext}</span>}
     </a>
   );
 };

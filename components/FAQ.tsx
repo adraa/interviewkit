@@ -5,16 +5,16 @@ const FaqAccordion: React.FC<{ item: FaqItem }> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-slate-700 rounded mb-4 bg-slate-800 hover:border-gray-500 transition-colors">
+    <div className="bg-white mb-4 rounded-lg border border-gray-200 shadow-sm overflow-hidden">
       <button 
-        className="w-full py-5 px-6 text-left flex justify-between items-center focus:outline-none"
+        className="w-full py-4 px-6 text-left flex justify-between items-center focus:outline-none bg-white hover:bg-gray-50 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-bold text-lg text-white">{item.question}</span>
-        <i className={`fa-solid fa-chevron-down text-[#39FF14] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}></i>
+        <span className="font-bold text-slate-900 text-sm md:text-base">{item.question}</span>
+        <i className={`fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}></i>
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-48' : 'max-h-0'}`}>
-        <p className="p-6 pt-0 text-gray-300 leading-relaxed border-t border-slate-700 mt-2">
+      <div className={`transition-all duration-300 ${isOpen ? 'max-h-48' : 'max-h-0'}`}>
+        <p className="p-6 pt-0 text-gray-600 text-sm leading-relaxed border-t border-gray-100 mt-2">
           {item.answer}
         </p>
       </div>
@@ -25,28 +25,28 @@ const FaqAccordion: React.FC<{ item: FaqItem }> = ({ item }) => {
 export const FAQ: React.FC = () => {
   const faqs: FaqItem[] = [
     {
-      question: "Kalau tak menjadi macam mana?",
-      answer: "Kalau kau baca tapi tak amal, memang tak jadi. Ini bukan ubat kurus, ini ilmu. Kau buat, kau dapat. Kalau kau malas, jangan beli."
+      question: "Kalau saya tak pandai English langsung, boleh guna?",
+      answer: "Boleh sangat. Sebab tu kami sediakan skrip. Anda cuma perlu hafal dan latih sebut. Tak perlu pening nak susun ayat grammar sendiri."
     },
     {
-      question: "English saya memang level budak tadika. Boleh ke?",
-      answer: "Sebab tu kami bagi skrip. Kau tak payah create ayat sendiri. Hafal je skrip tu macam kau hafal lirik lagu. HR takkan tahu rahsia kau."
+      question: "Ada jaminan dapat kerja ke?",
+      answer: "Rezeki di tangan Tuhan. Tapi dengan ilmu ni, anda takkan masuk bilik interview dengan 'kosong'. Anda akan lebih confident dan peluang lulus jauh lebih tinggi."
     },
     {
-      question: "Mahal la RM49 ni...",
-      answer: "Kalau RM49 untuk masa depan kau pun kau berkira, patutlah kau menganggur. Stay broke. Orang lain dah invest untuk ubah nasib."
+      question: "Format apa kit ni?",
+      answer: "Semua dalam bentuk PDF Digital. Lepas bayar, terus boleh download masuk phone atau laptop. Tak perlu tunggu posmen."
     },
     {
-      question: "Sesuai untuk kerja kerajaan?",
-      answer: "Kit ni design untuk swasta & MNC yang aggressive. Tapi teknik confident tu universal, boleh pakai kat mana-mana."
+      question: "Sesuai untuk fresh grad?",
+      answer: "Memang direka khas untuk fresh grad dan mereka yang dah lama menganggur. Kami ajar dari A sampai Z."
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-900 px-4 md:px-8">
+    <section className="py-20 bg-gray-50 px-5 border-t border-gray-200">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-center text-white mb-12">
-          SOALAN YANG SELALU ORANG TANYA
+        <h2 className="text-2xl md:text-4xl font-extrabold text-center text-slate-900 mb-10 uppercase">
+          Soalan Lazim (FAQ)
         </h2>
         <div>
           {faqs.map((faq, index) => (

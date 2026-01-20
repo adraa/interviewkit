@@ -2,14 +2,13 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-gray-600 py-12 px-4 text-center text-sm border-t border-gray-900">
-      <div className="max-w-4xl mx-auto space-y-4">
-        <p className="font-display tracking-widest text-gray-500 uppercase">
-          Kit Pukau Majikan &copy; 2026
+    <footer className="bg-white text-gray-500 py-12 px-5 text-center text-sm border-t border-gray-200">
+      <div className="max-w-4xl mx-auto space-y-2">
+        <p className="font-bold text-slate-900 uppercase tracking-widest">
+          Hak Cipta Terpelihara © 2026 Kit Pukau Majikan.
         </p>
-        <p>
-          Hak Cipta Terpelihara. Jangan curi content aku. <br/>
-          Disclaimer: Result depends on your effort. No refund for laziness.
+        <p className="text-xs">
+          Penafian: Ini adalah produk pendidikan. Hasil bergantung pada usaha individu.
         </p>
       </div>
     </footer>
