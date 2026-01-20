@@ -1,12 +1,9 @@
 import React from 'react';
 
 const ProblemCard: React.FC<{ title: string; text: string }> = ({ title, text }) => (
-  <div className="bg-white p-8 rounded-xl shadow-lg border border-red-100 relative hover:-translate-y-1 transition-transform duration-300">
-    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm">
-       <i className="fa-solid fa-xmark text-2xl text-red-600"></i>
-    </div>
-    <h3 className="text-xl font-bold text-slate-900 mb-3 text-center mt-2">{title}</h3>
-    <p className="text-gray-600 text-center leading-relaxed text-sm">
+  <div className="bg-white p-5 shadow border-l-4 border-red-600 mb-4 rounded-r flex flex-col justify-center">
+    <h3 className="font-black text-slate-900 uppercase text-lg mb-1">{title}</h3>
+    <p className="text-gray-700 text-sm font-medium leading-relaxed">
       {text}
     </p>
   </div>
@@ -14,29 +11,26 @@ const ProblemCard: React.FC<{ title: string; text: string }> = ({ title, text })
 
 export const PainPoints: React.FC = () => {
   return (
-    <section className="py-20 bg-[#FEF2F2] px-5">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">
-            Adakah Anda Sedang Rasa <span className="text-red-600 bg-yellow-200 px-2 rotate-2 inline-block shadow-sm transform border border-yellow-300">TERHIMPIT</span> Macam Ni?
-            </h2>
-            <p className="text-gray-600">Jangan tipu diri sendiri. Situasi ni memang sakit.</p>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-10 mt-10">
-          <ProblemCard 
-            title="Duit Habis"
-            text="Dah 6 bulan grad, tapi masih minta duit belanja kat mak ayah. Rasa bersalah setiap kali minta topup. Malu weh."
-          />
-          <ProblemCard 
-            title="Interview Gagal"
-            text="Bila HR tanya dalam English, terus gagap. Otak blank. Balik rumah rasa nak nangis sebab lepaskan peluang."
-          />
-          <ProblemCard 
-            title="Member Dah Kaya"
-            text="Kawan satu batch dah post gambar kereta baru & holiday. Kau? Masih scroll JobStreet cari kerja kosong."
-          />
-        </div>
+    <section className="py-10 bg-gray-50 px-5 border-y border-gray-200">
+      <div className="text-center mb-8">
+          <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+          Rasa <span className="text-red-600 underline decoration-4 decoration-red-300">Terhimpit</span> Macam Ni?
+          </h2>
+      </div>
+      
+      <div className="flex flex-col">
+        <ProblemCard 
+          title="DUIT MAKIN HABIS"
+          text="Dah 6 bulan grad, tapi masih minta duit belanja kat mak ayah. Rasa malu setiap kali minta topup. Member lain dah belanja family makan."
+        />
+        <ProblemCard 
+          title="INTERVIEW ASYIK GAGAL"
+          text="Bila HR tanya dalam English, terus gagap. Otak blank. Balik rumah rasa nak nangis sebab lepaskan peluang depan mata."
+        />
+        <ProblemCard 
+          title="MEMBER DAH KAYA"
+          text="Kawan satu batch dah post gambar kereta baru & holiday. Kau? Masih scroll JobStreet cari kerja kosong pukul 2 pagi."
+        />
       </div>
     </section>
   );

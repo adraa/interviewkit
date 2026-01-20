@@ -1,58 +1,38 @@
 import React, { useState } from 'react';
-import { FaqItem } from '../types';
 
-const FaqAccordion: React.FC<{ item: FaqItem }> = ({ item }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="bg-white mb-4 rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+    <div className="border-b border-gray-200">
       <button 
-        className="w-full py-4 px-6 text-left flex justify-between items-center focus:outline-none bg-white hover:bg-gray-50 transition-colors"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setOpen(!open)} 
+        className="w-full text-left py-4 px-2 flex justify-between items-center font-bold text-slate-900 text-sm hover:bg-gray-50"
       >
-        <span className="font-bold text-slate-900 text-sm md:text-base">{item.question}</span>
-        <i className={`fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}></i>
+        <span>{q}</span>
+        <i className={`fa-solid fa-caret-down transition-transform ${open ? 'rotate-180' : ''}`}></i>
       </button>
-      <div className={`transition-all duration-300 ${isOpen ? 'max-h-48' : 'max-h-0'}`}>
-        <p className="p-6 pt-0 text-gray-600 text-sm leading-relaxed border-t border-gray-100 mt-2">
-          {item.answer}
-        </p>
-      </div>
+      {open && <div className="p-4 bg-gray-50 text-sm text-gray-700 leading-relaxed border-t border-gray-100">{a}</div>}
     </div>
   );
 };
 
 export const FAQ: React.FC = () => {
-  const faqs: FaqItem[] = [
-    {
-      question: "Kalau saya tak pandai English langsung, boleh guna?",
-      answer: "Boleh sangat. Sebab tu kami sediakan skrip. Anda cuma perlu hafal dan latih sebut. Tak perlu pening nak susun ayat grammar sendiri."
-    },
-    {
-      question: "Ada jaminan dapat kerja ke?",
-      answer: "Rezeki di tangan Tuhan. Tapi dengan ilmu ni, anda takkan masuk bilik interview dengan 'kosong'. Anda akan lebih confident dan peluang lulus jauh lebih tinggi."
-    },
-    {
-      question: "Format apa kit ni?",
-      answer: "Semua dalam bentuk PDF Digital. Lepas bayar, terus boleh download masuk phone atau laptop. Tak perlu tunggu posmen."
-    },
-    {
-      question: "Sesuai untuk fresh grad?",
-      answer: "Memang direka khas untuk fresh grad dan mereka yang dah lama menganggur. Kami ajar dari A sampai Z."
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gray-50 px-5 border-t border-gray-200">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-extrabold text-center text-slate-900 mb-10 uppercase">
-          Soalan Lazim (FAQ)
-        </h2>
-        <div>
-          {faqs.map((faq, index) => (
-            <FaqAccordion key={index} item={faq} />
-          ))}
-        </div>
+    <section className="py-10 px-5 bg-white">
+      <h2 className="text-2xl font-black text-center text-slate-900 mb-8 uppercase">Soalan Lazim</h2>
+      <div className="border-t border-gray-200">
+        <FaqItem 
+            q="English saya lemah, boleh guna ke?" 
+            a="Boleh. Skrip ini direka supaya mudah dihafal. Anda tak perlu grammar power, cukup sekadar boleh sebut dengan yakin." 
+        />
+        <FaqItem 
+            q="Sesuai untuk kerja Kerajaan?" 
+            a="Fokus utama adalah sektor Swasta & MNC. Tapi teknik keyakinan diri boleh diguna pakai di mana-mana interview." 
+        />
+        <FaqItem 
+            q="Macam mana nak dapatkan Kit ni?" 
+            a="Klik butang merah 'Download Sekarang', buat bayaran via FPX/Online Banking. Link download akan dihantar ke email anda dalam 2 minit." 
+        />
       </div>
     </section>
   );
