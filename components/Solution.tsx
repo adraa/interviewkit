@@ -1,15 +1,39 @@
 import React from 'react';
 
-const CheckItem: React.FC<{ title: string; desc: string; isBonus?: boolean }> = ({ title, desc, isBonus }) => (
-  <div className="flex items-start gap-4 mb-6 group">
-    <div className="flex-shrink-0 mt-1">
-      <i className={`fa-solid ${isBonus ? 'fa-gift text-yellow-400' : 'fa-check text-[#39FF14]'} text-xl`}></i>
+interface BentoItemProps {
+  title: string;
+  desc: string;
+  icon: string;
+  isBonus?: boolean;
+  imageAlt: string;
+}
+
+const BentoItem: React.FC<BentoItemProps> = ({ title, desc, icon, isBonus, imageAlt }) => (
+  <div className={`relative group overflow-hidden rounded-2xl border ${isBonus ? 'border-yellow-500 bg-slate-900' : 'border-slate-700 bg-slate-800'} hover:border-[#39FF14] transition-colors duration-300 flex flex-col h-full`}>
+    {/* Product Cover Placeholder */}
+    <div className="h-40 bg-slate-950 relative overflow-hidden">
+      <div className="absolute inset-0 bg-slate-900 flex items-center justify-center">
+         <img 
+            src={`https://placehold.co/600x400/1e293b/${isBonus ? 'eab308' : '39ff14'}/png?text=${encodeURIComponent(imageAlt)}`}
+            alt={imageAlt}
+            className="object-cover w-full h-full opacity-50 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"
+         />
+         <i className={`${icon} text-5xl absolute z-10 ${isBonus ? 'text-yellow-500' : 'text-[#39FF14]'} drop-shadow-lg`}></i>
+      </div>
     </div>
-    <div>
-      <h4 className={`font-bold text-lg md:text-xl ${isBonus ? 'text-yellow-400 uppercase tracking-wider' : 'text-white'}`}>
-        {title}
-      </h4>
-      <p className="text-gray-400 text-sm md:text-base mt-1 group-hover:text-gray-300 transition-colors">{desc}</p>
+    
+    <div className="p-6 flex-grow flex flex-col">
+        {isBonus && (
+            <span className="inline-block bg-yellow-500 text-black text-xs font-black px-2 py-1 rounded mb-3 w-max uppercase">
+                Bonus Item
+            </span>
+        )}
+        <h3 className={`font-display text-xl font-bold mb-2 ${isBonus ? 'text-yellow-400' : 'text-white'}`}>
+            {title}
+        </h3>
+        <p className="text-gray-400 text-sm leading-relaxed">
+            {desc}
+        </p>
     </div>
   </div>
 );
@@ -17,56 +41,54 @@ const CheckItem: React.FC<{ title: string; desc: string; isBonus?: boolean }> = 
 export const Solution: React.FC = () => {
   return (
     <section className="py-24 bg-slate-800 px-4 md:px-8 border-y border-slate-700">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
-            BERHENTI JADI MANGSA KEADAAN. <br/><span className="text-[#39FF14]">INI CHEAT CODE DIA.</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 uppercase">
+            Bukan Sekadar Ebook. <br/><span className="text-[#39FF14]">Ini Senjata Perang.</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light">
-            Kau tak payah pandai English macam Mat Salleh. Kau cuma perlu <span className="font-bold text-white">SKRIP</span> yang betul. 
-            Copy. Paste. Hafal. <span className="underline decoration-[#39FF14] decoration-4 underline-offset-4">Lulus.</span>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Kami tak jual "motivasi". Kami bagi tools untuk kau <span className="text-white font-bold underline decoration-red-500">hack</span> system HR.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Visual Queue Side */}
-          <div className="order-2 md:order-1 relative">
-             <div className="absolute inset-0 bg-[#39FF14] blur-[100px] opacity-10"></div>
-             <img 
-               src="https://placehold.co/500x500/0f172a/39ff14/png?text=KIT+PUKAU+BUNDLE+3D" 
-               alt="Kit Pukau Bundle Box 3D" 
-               className="relative z-10 mx-auto hover:scale-105 transition duration-500 drop-shadow-2xl"
-             />
-          </div>
-
-          {/* Stack Side */}
-          <div className="order-1 md:order-2">
-            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-700 shadow-xl">
-                <CheckItem 
-                  title="Blueprint Pukau Interviewer (Ebook)" 
-                  desc="Kitab suci untuk lepas filter HR 2026. Baca ni sebelum tidur."
-                />
-                <CheckItem 
-                  title="30 Skrip Jawapan Maut (English & BM)" 
-                  desc="Tiru sebiji-sebiji. HR akan ingat kau pro, padahal kau hafal skrip je."
-                />
-                <CheckItem 
-                  title="Checklist Anti-Gugup" 
-                  desc="Hilangkan ketar lutut 5 minit sebelum masuk bilik. Confidence level dewa."
-                />
-                <div className="my-6 border-t border-slate-700"></div>
-                <CheckItem 
-                  title="BONUS 1: 7-Hari Crash Course Email (PDF)" 
-                  desc="Strategi follow-up supaya majikan tak lupa nama kau."
-                  isBonus={true}
-                />
-                <CheckItem 
-                  title="BONUS 2: Nota Sulit Realiti Malaysia" 
-                  desc="Cara Nego Gaji Jalanan. Jangan biar majikan pijak kepala kau."
-                  isBonus={true}
-                />
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <BentoItem 
+            title="Blueprint Pukau Interviewer"
+            desc="Ebook utama. Kitab suci untuk lepas filter HR 2026. Dari cara dress up sampai cara 'nego' gaji."
+            icon="fa-solid fa-book"
+            imageAlt="Main Ebook"
+          />
+          <BentoItem 
+            title="30 Skrip Jawapan Maut"
+            desc="Tiru bulat-bulat. Bila HR tanya soalan killer, kau senyum je sebab dah ada jawapan dalam poket."
+            icon="fa-solid fa-file-lines"
+            imageAlt="Script Templates"
+          />
+          <BentoItem 
+            title="Checklist Anti-Gugup"
+            desc="Hilangkan ketar lutut dalam 5 minit. Checklist wajib semak sebelum ketuk pintu bilik interview."
+            icon="fa-solid fa-clipboard-check"
+            imageAlt="Checklist PDF"
+          />
+          <BentoItem 
+            title="Hacks Body Language"
+            desc="Psikologi duduk, cara pandang mata, dan posisi tangan yang buat HR rasa kau 'Dominant' & 'Confident'."
+            icon="fa-solid fa-eye"
+            imageAlt="Body Language Guide"
+          />
+          <BentoItem 
+            title="7-Hari Email Crash Course"
+            desc="Strategi follow-up lepas interview supaya majikan tak lupa nama kau. Jangan jadi 'ghosted'."
+            icon="fa-solid fa-envelope"
+            imageAlt="Email Course"
+          />
+          <BentoItem 
+            title="Realiti Interview Malaysia"
+            desc="Nota sulit: Budaya syarikat Chinaman vs MNC, dan pantang larang HR yang tak diajar kat universiti."
+            icon="fa-solid fa-map-location-dot"
+            isBonus={true}
+            imageAlt="Bonus Content"
+          />
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ interface ButtonProps {
   text: string;
   subtext?: string;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'neon';
+  variant?: 'primary' | 'secondary' | 'neon' | 'muted';
   fullWidth?: boolean;
 }
 
@@ -15,12 +15,13 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'neon',
   fullWidth = false 
 }) => {
-  const baseClasses = "inline-flex flex-col items-center justify-center px-6 py-4 rounded-lg font-black text-lg md:text-xl transition-all duration-200 transform hover:scale-105 shadow-[0_0_20px_rgba(57,255,20,0.3)] active:scale-95 border-2";
+  const baseClasses = "inline-flex flex-col items-center justify-center px-6 py-4 rounded-lg font-black text-lg md:text-xl transition-all duration-200 transform hover:scale-105 active:scale-95 border-2";
   
   const variants = {
-    primary: "bg-red-600 hover:bg-red-700 text-white border-red-600",
+    primary: "bg-red-600 hover:bg-red-700 text-white border-red-600 shadow-lg",
     secondary: "bg-transparent hover:bg-white/10 text-white border-white",
-    neon: "bg-[#39FF14] hover:bg-[#32cc12] text-black border-[#39FF14] animate-pulse"
+    neon: "bg-[#39FF14] hover:bg-[#32cc12] text-black border-[#39FF14] animate-pulse shadow-[0_0_20px_rgba(57,255,20,0.3)]",
+    muted: "bg-slate-800 hover:bg-slate-700 text-gray-400 border-slate-700 hover:text-white"
   };
 
   return (
